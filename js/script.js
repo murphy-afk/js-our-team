@@ -82,15 +82,24 @@ cardsElem.innerHTML = cards;
 //     imageChoice = "upload"
 //   }
 // });
-let imageChoice = "select";
-uploadChoiceBtn.addEventListener("click", (event) =>{
-  event.preventDefault();
-  imageUpload.classList.remove("d-none");
-  imageChoice = "upload";
-  selectElem.classList.add("d-none");
-});
+let imageChoice;
+// uploadChoiceBtn.addEventListener("click", (event) =>{
+//   event.preventDefault();
+//   imageUpload.classList.remove("d-none");
+//   imageChoice = "upload";
+//   selectElem.classList.add("d-none");
+// });
 
-
+profilePhotoInput.addEventListener("change", () => {
+  if (profilePhotoInput.value === "upload") {
+    imageUpload.classList.remove("d-none");
+    // imageChoice = "upload";
+  }
+  else {
+    imageUpload.classList.add("d-none");
+    // imageChoice = "select";
+  } 
+})
 
 let imgValue;
 formElem.addEventListener("submit", (event) => {
@@ -98,19 +107,14 @@ formElem.addEventListener("submit", (event) => {
   const nameValue = nameInput.value;
   const roleValue = roleInput.value;
   const emailValue = emailInput.value;
+  const profilePhotoValue = profilePhotoInput.value;
+
   let imgValue;
-  if (imageChoice === "select") {
-    imgValue = profilePhotoInput.value;
-  }
-  else if (imageChoice === "upload") {
-    console.log(imageUpload.files[0]);
-    
+  if (profilePhotoValue === "upload") {
     const imageUrl = URL.createObjectURL(imageUpload.files[0]);
     imgValue = imageUrl;
   }
-
-  // const imageUrl = URL.createObjectURL(imageInput.files[0]);
-  //imageInput.files[0]);
+  else imgValue = profilePhotoValue;
 
   teamMembers.push({
     name: nameValue,

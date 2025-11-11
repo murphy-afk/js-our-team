@@ -30,19 +30,16 @@
 
     <label for="profile-photo" class="form-label">Foto profilo</label>
 
-    
-    <select name="profile-photo" id="profile-photo" class="form-select">
+    <select name="profile-photo" id="profile-photo" class="form-select" required>
       <option selected disabled></option>
       <option value="img/frog.jpeg">Rana</option>
       <option value="img/bee.jpeg">Ape</option>
       <option value="img/person.jpeg">Persona</option>
       <option value="img/ghost.jpeg">Fantasma</option>
       <option value="https://picsum.photos/150/150">Random</option>
+      <option value="upload">Oppure carica un'immagine</option>
     </select>
-    <div class="img-select-choice">
-      <button class="upload-choice btn btn-primary">Oppure carica un immagine</button>
-    </div>
-    <input type="file" name="image" id="image-upload" accept="image/png, image/jpeg" class="d-none">
+    <input type="file" name="image" id="image-upload" accept="image/png, image/jpeg" class="d-none form-control mt-2">
     <button type="submit" class="btn btn-primary mt-2">Aggiungi</button>
     <button type="reset" class="btn btn-secondary mt-2">Rimuovi dati</button>
   </form>
