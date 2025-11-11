@@ -94,5 +94,6 @@ formElem.addEventListener("submit", (event) => {
 
   cardsElem.innerHTML += newCard;
   console.log(teamMembers);
+  formElem.reset();
 });
 
