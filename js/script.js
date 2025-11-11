@@ -55,7 +55,7 @@ for (let i = 0; i < teamMembers.length; i++) {
           <div class="w-70 fs-7 text-light ps-2 py-1">
             <h2 class="fs-6">${name}</h2>
             <p>${role}</p>
-            <p>${email}</p>
+            <p class="text-info-emphasis">${email}</p>
           </div>
         </div>
       </li>`;
@@ -75,8 +75,9 @@ formElem.addEventListener("submit", (event) => {
     name: nameValue,
     role: roleValue,
     email: emailValue,
-    img: imgValue
+    img: imgValue,
   });
+
   const newCard = `
       <li class="col col-5 card p-0 bg-dark"> 
         <div class="card-content d-flex align-items-center">
@@ -86,11 +87,12 @@ formElem.addEventListener("submit", (event) => {
           <div class="w-70 fs-7 text-light ps-2 py-1">
             <h2 class="fs-6">${nameValue}</h2>
             <p>${roleValue}</p>
-            <p>${emailValue}</p>
+            <p class="text-info-emphasis">${emailValue}</p>
           </div>
         </div>
       </li>`;
 
   cardsElem.innerHTML += newCard;
-
+  console.log(teamMembers);
 });
+
