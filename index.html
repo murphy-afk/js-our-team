@@ -12,7 +12,8 @@
 
 <body class="container">
   <h1 class="text-center bg-dark text-light fw-bold rounded-5 py-3 mt-2">Meet our team</h1>
-  <p class="fs-6 text-center px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti amet libero vitae cupiditate porro
+  <p class="fs-6 text-center px-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti amet libero vitae
+    cupiditate porro
     maiores, tempora tempore eum iure nesciunt reiciendis, cum sunt dolores, quisquam enim. Harum aliquam natus
     deleniti.</p>
   <ul class="cards row p-0 gap-2 justify-content-evenly"></ul>
@@ -20,13 +21,17 @@
   <form action="" class="form my-5" id="form">
     <h3>Aggiungi nuovo membro</h3>
     <label for="name" class="form-label">Nome</label>
+
     <input type="text" name="name" id="name" class="form-control" required>
     <label for="role" class="form-label">Ruolo</label>
     <input type="text" name="role" id="role" class="form-control" required>
     <label for="email" class="form-label">Email</label>
     <input type="email" name="email" id="email" class="form-control" required>
+
     <label for="profile-photo" class="form-label">Foto profilo</label>
-    <select name="profile-photo" id="profile-photo" class="form-select" required>
+
+    
+    <select name="profile-photo" id="profile-photo" class="form-select">
       <option selected disabled></option>
       <option value="img/frog.jpeg">Rana</option>
       <option value="img/bee.jpeg">Ape</option>
@@ -34,6 +39,10 @@
       <option value="img/ghost.jpeg">Fantasma</option>
       <option value="https://picsum.photos/150/150">Random</option>
     </select>
+    <div class="img-select-choice">
+      <button class="upload-choice btn btn-primary">Oppure carica un immagine</button>
+    </div>
+    <input type="file" name="image" id="image-upload" accept="image/png, image/jpeg" class="d-none">
     <button type="submit" class="btn btn-primary mt-2">Aggiungi</button>
     <button type="reset" class="btn btn-secondary mt-2">Rimuovi dati</button>
   </form>

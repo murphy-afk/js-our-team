@@ -4,6 +4,10 @@ const nameInput = document.getElementById("name");
 const roleInput = document.getElementById("role");
 const emailInput = document.getElementById("email");
 const profilePhotoInput = document.getElementById("profile-photo");
+const selectElem = document.querySelector("select");
+const imageUpload = document.getElementById("image-upload");
+const uploadChoiceBtn = document.querySelector(".upload-choice");
+const selectChoiceBtn = document.querySelector(".select-choice");
 
 const teamMembers = [
   {
@@ -64,12 +68,49 @@ for (let i = 0; i < teamMembers.length; i++) {
 
 cardsElem.innerHTML = cards;
 
+// let imageChoice;
+// imgSelectChoice.addEventListener("click", () => {
+//   const imgInputType = imgInputChoice.value;
+//   console.log(imgInputType);
+  
+//   if (imgInputType === "select-photo") {
+//     selectElem.classList.remove("d-none");
+//     imageChoice = "select";
+//   }
+//   else if (imgInputType === "upload-photo") {
+//     imageUpload.classList.remove("d-none");
+//     imageChoice = "upload"
+//   }
+// });
+let imageChoice = "select";
+uploadChoiceBtn.addEventListener("click", (event) =>{
+  event.preventDefault();
+  imageUpload.classList.remove("d-none");
+  imageChoice = "upload";
+  selectElem.classList.add("d-none");
+});
+
+
+
+let imgValue;
 formElem.addEventListener("submit", (event) => {
   event.preventDefault();
   const nameValue = nameInput.value;
   const roleValue = roleInput.value;
   const emailValue = emailInput.value;
-  const imgValue = profilePhotoInput.value;
+  let imgValue;
+  if (imageChoice === "select") {
+    imgValue = profilePhotoInput.value;
+  }
+  else if (imageChoice === "upload") {
+    console.log(imageUpload.files[0]);
+    
+    const imageUrl = URL.createObjectURL(imageUpload.files[0]);
+    imgValue = imageUrl;
+  }
+
+  // const imageUrl = URL.createObjectURL(imageInput.files[0]);
+  //imageInput.files[0]);
 
   teamMembers.push({
     name: nameValue,
@@ -94,6 +135,9 @@ formElem.addEventListener("submit", (event) => {
 
   cardsElem.innerHTML += newCard;
   console.log(teamMembers);
+  imageUpload.classList.add("d-none");
+  imageChoice = "select";
+  selectElem.classList.remove("d-none");
   formElem.reset();
 });
 
