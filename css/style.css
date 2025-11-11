@@ -1,0 +1,15 @@
+img {
+  max-width: 100%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+body {
+  background-color: rgb(168, 151, 151);
+}

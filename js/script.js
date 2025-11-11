@@ -41,11 +41,17 @@ let cards = "";
 for (let i = 0; i < teamMembers.length; i++) {
   const { name, role, email, img } = teamMembers[i];
   const card = `
-      <li class="card col"> 
-        <img src="${img}" alt="foto profilo">
-        <h2>${name}</h2>
-        <p>${role}</p>
-        <p>${email}</p>
+      <li class="col col-5 card p-0"> 
+        <div class="card-content d-flex align-items-center">
+          <div class="w-30 h-100 d-flex">
+            <img src="${img}" alt="foto profilo">
+          </div>
+          <div class="w-70 fs-7 bg-dark text-light ps-2 py-1">
+            <h2 class="fs-6">${name}</h2>
+            <p>${role}</p>
+            <p>${email}</p>
+          </div>
+        </div>
       </li>`;
   cards += card;
 }
