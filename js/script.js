@@ -1,4 +1,10 @@
 const cardsElem = document.querySelector(".cards");
+const formElem = document.querySelector(".form");
+const nameInput = document.getElementById("name");
+const roleInput = document.getElementById("role");
+const emailInput = document.getElementById("email");
+const profilePhotoInput = document.getElementById("profile-photo");
+
 const teamMembers = [
   {
     name: "Marco Bianchi",
@@ -41,12 +47,12 @@ let cards = "";
 for (let i = 0; i < teamMembers.length; i++) {
   const { name, role, email, img } = teamMembers[i];
   const card = `
-      <li class="col col-5 card p-0"> 
+      <li class="col col-5 card p-0 bg-dark"> 
         <div class="card-content d-flex align-items-center">
           <div class="w-30 h-100 d-flex">
             <img src="${img}" alt="foto profilo">
           </div>
-          <div class="w-70 fs-7 bg-dark text-light ps-2 py-1">
+          <div class="w-70 fs-7 text-light ps-2 py-1">
             <h2 class="fs-6">${name}</h2>
             <p>${role}</p>
             <p>${email}</p>
@@ -57,3 +63,33 @@ for (let i = 0; i < teamMembers.length; i++) {
 }
 
 cardsElem.innerHTML = cards;
+
+formElem.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const nameValue = nameInput.value;
+  const roleValue = roleInput.value;
+  const emailValue = emailInput.value;
+  const imgValue = profilePhotoInput.value;
+
+  teamMembers.push({
+    name: nameValue,
+    role: roleValue,
+    email: emailValue,
+    img: imgValue
+  });
+  const newCard = `
+      <li class="col col-5 card p-0"> 
+        <div class="card-content d-flex align-items-center">
+          <div class="w-30 h-100 d-flex">
+            <img src="img/${imgValue}" alt="foto profilo">
+          </div>
+          <div class="w-70 fs-7 bg-dark text-light ps-2 py-1">
+            <h2 class="fs-6">${nameValue}</h2>
+            <p>${roleValue}</p>
+            <p>${emailValue}</p>
+          </div>
+        </div>
+      </li>`;
+  cardsElem.innerHTML += newCard;
+  
+});
