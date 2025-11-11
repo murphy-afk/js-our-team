@@ -78,18 +78,19 @@ formElem.addEventListener("submit", (event) => {
     img: imgValue
   });
   const newCard = `
-      <li class="col col-5 card p-0"> 
+      <li class="col col-5 card p-0 bg-dark"> 
         <div class="card-content d-flex align-items-center">
           <div class="w-30 h-100 d-flex">
             <img src="img/${imgValue}" alt="foto profilo">
           </div>
-          <div class="w-70 fs-7 bg-dark text-light ps-2 py-1">
+          <div class="w-70 fs-7 text-light ps-2 py-1">
             <h2 class="fs-6">${nameValue}</h2>
             <p>${roleValue}</p>
             <p>${emailValue}</p>
           </div>
         </div>
       </li>`;
+
   cardsElem.innerHTML += newCard;
-  
+
 });
