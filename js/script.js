@@ -68,38 +68,11 @@ for (let i = 0; i < teamMembers.length; i++) {
 
 cardsElem.innerHTML = cards;
 
-// let imageChoice;
-// imgSelectChoice.addEventListener("click", () => {
-//   const imgInputType = imgInputChoice.value;
-//   console.log(imgInputType);
-  
-//   if (imgInputType === "select-photo") {
-//     selectElem.classList.remove("d-none");
-//     imageChoice = "select";
-//   }
-//   else if (imgInputType === "upload-photo") {
-//     imageUpload.classList.remove("d-none");
-//     imageChoice = "upload"
-//   }
-// });
 let imageChoice;
-// uploadChoiceBtn.addEventListener("click", (event) =>{
-//   event.preventDefault();
-//   imageUpload.classList.remove("d-none");
-//   imageChoice = "upload";
-//   selectElem.classList.add("d-none");
-// });
-
 profilePhotoInput.addEventListener("change", () => {
-  if (profilePhotoInput.value === "upload") {
-    imageUpload.classList.remove("d-none");
-    // imageChoice = "upload";
-  }
-  else {
-    imageUpload.classList.add("d-none");
-    // imageChoice = "select";
-  } 
-})
+  if (profilePhotoInput.value === "upload") imageUpload.classList.remove("d-none");
+  else imageUpload.classList.add("d-none");
+});
 
 let imgValue;
 formElem.addEventListener("submit", (event) => {
