@@ -51,7 +51,7 @@ let cards = "";
 for (let i = 0; i < teamMembers.length; i++) {
   const { name, role, email, img } = teamMembers[i];
   const card = `
-      <li class="col col-5 card p-0 bg-dark justify-content-center"> 
+      <li class="col col-5 card p-0 bg-dark justify-content-center border border-0"> 
         <div class="card-content d-flex align-items-center h-100">
           <div class="w-30 h-100 d-flex">
             <img src="${img}" alt="foto profilo">
@@ -97,7 +97,7 @@ formElem.addEventListener("submit", (event) => {
   });
 
   const newCard = `
-      <li class="col col-5 card p-0 bg-dark justify-content-center"> 
+      <li class="col col-5 card p-0 bg-dark justify-content-center border border-0"> 
         <div class="card-content d-flex align-items-center h-100">
           <div class="w-30 h-100 d-flex">
             <img src="${imgValue}" alt="foto profilo">
